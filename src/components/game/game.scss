@@ -1,0 +1,83 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/colors.scss';
+
+.game {
+    &-stars {
+        height: 20px;
+        margin-bottom: 50px;
+        overflow: hidden;
+    }
+    &-btn {
+        display: block;
+        margin: 0 auto;
+        opacity: 0;
+        width: 100%;
+        max-width: 300px;
+        visibility: hidden;
+        &::before {
+            content: attr(data-word);
+            font-size: 18px;
+            font-weight: 600;
+            color: $white;
+            text-transform: uppercase;
+        }
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        &.play {
+            max-width: 100px;
+            &::before {
+                content: '';
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                width: 20px;
+                height: 20px;
+                background: {
+                    position: center;
+                    size: cover;
+                    repeat: no-repeat;
+                    image: url('../../assets/svg/repeat.svg');
+                }
+            }
+        }
+    }
+}
+
+.star {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    &:last-child {
+        margin-right: 0;
+    }
+    background: {
+        position: center;
+        size: cover;
+        repeat: no-repeat;
+    }
+    &-fall {
+        background-image: url('../../assets/svg/star-regular.svg');
+    }
+    &-done {
+        background-image: url('../../assets/svg/star-solid.svg');
+    }
+}
+
+.finish {
+    &-title {
+        display: block;
+        margin-bottom: 100px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    &-image {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}

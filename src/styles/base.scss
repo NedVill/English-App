@@ -1,0 +1,128 @@
+body {
+    background-color: $peach;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: $white;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+select {
+    margin-bottom: 20px;
+    background-color: $orange_second;
+    color: $white;
+    border-color: $white;
+    outline: none;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+* {
+    @include scrollbar($orange_main, $white, 6px);
+}
+
+a {
+    color: $white;
+}
+
+.flex {
+    display: flex;
+    align-items: flex-start;
+    &_wrap {
+        flex-wrap: wrap;
+    }
+    &_end {
+        justify-content: flex-end;
+    }
+}
+
+.space {
+    &_between {
+        justify-content: space-between;
+    }
+}
+
+.align {
+    &_center {
+        align-items: center;
+    }
+    &_inherit {
+        align-items: inherit;
+    }
+}
+
+.container {
+    display: block;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section {
+    display: none;
+    margin-bottom: 150px;
+    &.active {
+        display: block;
+    }
+    transition: opacity 0.4s;
+}
+
+.rotate {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: {
+        position: center;
+        size: cover;
+        repeat: no-repeat;
+        image: url('../assets/svg/rotate.svg');
+    }
+}
+
+.translate {
+    transform: rotateY(180deg) scale(1.05) !important;
+}
+
+.disabled {
+    opacity: 0;
+    transition-duration: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.enable {
+    display: block;
+    opacity: 0;
+}
+
+.button {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    padding: 0 30px;
+    height: 60px;
+    background-color: $orange_second;
+    border-radius: 3px;
+    line-height: 40px;
+    color: $white;
+    text-align: center;
+    transition-duration: 0.4s;
+    &:hover {
+        background-color: $orange_main;
+    }
+}

@@ -1,0 +1,81 @@
+@import 'src/styles/mixins.scss';
+@import 'src/styles/colors.scss';
+
+.result {
+    &-wrapper {
+        overflow: auto;
+    }
+    &-table {
+        min-width: 600px;
+        width: 100%;
+        background-color: $white;
+        border-collapse: collapse;
+        color: black;
+        &__caption {
+            height: 50px;
+            line-height: 50px;
+            text-transform: uppercase;
+            color: $white;
+            background-color: $aqua_second;
+        }
+        &__thead {
+            border-bottom: 2px solid $aqua_second;
+            font-weight: bold;
+        }
+        &__tr {
+            &:nth-child(2n) {
+                background-color: $sand_transp;
+            }
+        }
+        &__td {
+            padding: 15px 20px;
+            text-align: center;
+            @include media(768px) {
+                font-size: 14px;
+                text-align: left;
+            }
+        }
+        &__sort {
+            cursor: pointer;
+        }
+        &__title {
+            &::selection {
+                background-color: transparent;
+            }
+        }
+        &__active {
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                right: 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-right: 5px;
+                width: 10px;
+                height: 10px;
+                background: {
+                    size: contain;
+                    position: center;
+                    repeat: no-repeat;
+                    image: url('../../assets/svg/arrow.svg');
+                }
+            }
+            &[data-sort="0"] {
+                &::before {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
+    }
+    &-bar {
+        margin-bottom: 30px;
+    }
+    &-clear {
+        margin-left: auto;
+        @include media(480px) {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@mixin media($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin mediamin($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin scrollbar($thumbcolor, $rangecolor, $width) {
+    /* Mozilla */
+    @media (min-width: 768px) {
+        scrollbar-color: $thumbcolor $rangecolor;
+        scrollbar-width: thin;
+
+        /* Chrome */
+        &::-webkit-scrollbar {
+            width: $width;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $rangecolor;
+            
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $thumbcolor;
+            border-radius: 10px;
+        }
+    }
+}
+
+@mixin scrollbar($thumbcolor, $rangecolor, $width) {
+    /* Mozilla */
+    @media (min-width: 768px) {
+        scrollbar-color: $thumbcolor $rangecolor;
+        scrollbar-width: thin;
+
+        /* Chrome */
+        &::-webkit-scrollbar {
+            width: $width;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: $rangecolor;
+            
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $thumbcolor;
+            border-radius: 10px;
+        }
+    }
+}
